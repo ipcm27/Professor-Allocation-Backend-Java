@@ -1,10 +1,16 @@
 package com.project.professor.allocation.entity;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 @Entity
 public class Course {
@@ -13,8 +19,20 @@ public class Course {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	long id;
 	
-	@Column (nullable =false, unique = true)
+	@Column (name = "name", nullable =false, unique = true)
 	String name;
+	
+	
+	@OnDelete (action = OnDeleteAction.CASCADE)
+	@OneToMany(mappedBy= "allocationCourse")
+	private List<Allocation> allocations;
+	
+	
+	
+	
+	
+	
+	
 	
 	public Course() {
 		super();

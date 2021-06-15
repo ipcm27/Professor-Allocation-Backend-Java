@@ -11,9 +11,14 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 @Entity
 public class Allocation {
@@ -34,7 +39,15 @@ public class Allocation {
 	@Column (nullable =false, unique = false)
 	private Date end;
 	
-
+	@ManyToOne(optional = false)
+	@OnDelete(action = OnDeleteAction.CASCADE)
+	@JoinColumn(name = "allocationProfessor_id", nullable = false)
+	private Allocation allocationProfessor;
+	
+	@ManyToOne(optional = false)
+	@OnDelete(action = OnDeleteAction.CASCADE)
+	@JoinColumn(name = "allocationCourse_id", nullable = false)
+	private Allocation allocationCourse;
 	
 	
 	public Allocation() {
