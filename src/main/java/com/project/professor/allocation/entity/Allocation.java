@@ -42,11 +42,27 @@ public class Allocation {
 	@ManyToOne(optional = false)
 	@OnDelete(action = OnDeleteAction.CASCADE)
 	@JoinColumn(name = "allocationProfessor_id", nullable = false)
+	/*
+	  O Correto aqui é:
+	  private Professor allocationProfessor;
+	  
+	  Desse jeito, allocationProfessor aponta para uma Alocação, quando deveria apontar para Professor
+	  Não se esquecer de fazer o get, set e adicionar no construtor
+	  Adicionei uma imagem do schema atual para você ver o erro
+	 */
 	private Allocation allocationProfessor;
 	
 	@ManyToOne(optional = false)
 	@OnDelete(action = OnDeleteAction.CASCADE)
 	@JoinColumn(name = "allocationCourse_id", nullable = false)
+	/*
+	  O Correto aqui é:
+	  private Course allocationCourse;
+	  
+	  Desse jeito, allocationCourse aponta para uma Alocação, quando deveria apontar para um Curso
+	  Não se esquecer de fazer o get, set e adicionar no construtor
+	  Adicionei uma imagem do schema atual para você ver o erro
+	 */
 	private Allocation allocationCourse;
 	
 	

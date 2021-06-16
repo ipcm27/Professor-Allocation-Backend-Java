@@ -25,6 +25,7 @@ public class Departament {
 	
 	@OnDelete (action = OnDeleteAction.CASCADE)
 	@OneToMany(mappedBy= "departament")
+	// Não se esquecer de fazer o get, set e adicionar no construtor
 	private List<Professor> professors;
 	
 	

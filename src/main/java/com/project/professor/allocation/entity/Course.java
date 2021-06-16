@@ -25,6 +25,7 @@ public class Course {
 	
 	@OnDelete (action = OnDeleteAction.CASCADE)
 	@OneToMany(mappedBy= "allocationCourse")
+	// Não se esquecer de fazer o get, set e adicionar no construtor
 	private List<Allocation> allocations;
 	
 	

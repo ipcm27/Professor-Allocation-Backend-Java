@@ -30,10 +30,12 @@ public class Professor {
 	@ManyToOne(optional = false)
 	@OnDelete(action = OnDeleteAction.CASCADE)
 	@JoinColumn(name = "departament_id", nullable = false)
+	// Não se esquecer de fazer o get, set e adicionar no construtor
 	private Departament departament;
 	
 	@OnDelete (action = OnDeleteAction.CASCADE)
 	@OneToMany(mappedBy= "allocationProfessor")
+	// Não se esquecer de fazer o get, set e adicionar no construtor
 	private List<Allocation> allocations;
 	
 	
