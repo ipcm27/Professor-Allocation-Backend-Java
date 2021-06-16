@@ -14,6 +14,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -21,45 +22,48 @@ import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
 @Entity
+@Table(name = "allocation")
 public class Allocation {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
-	@Enumerated (value = EnumType.STRING)
-	@Column (nullable =false, unique = false)
+
+	@Enumerated(value = EnumType.STRING)
+	@Column(name = "day", nullable = false, unique = false)
 	private DayOfWeek dayOfWeek;
-	
+
 	@Temporal(value = TemporalType.TIME)
-	@Column (nullable =false, unique = false)
+	@Column(name = "start", nullable = false, unique = false)
 	private Date start;
-	
+
 	@Temporal(value = TemporalType.TIME)
-	@Column (nullable =false, unique = false)
+	@Column(name = "end", nullable = false, unique = false)
 	private Date end;
-	
+
 	@ManyToOne(optional = false)
 	@OnDelete(action = OnDeleteAction.CASCADE)
-	@JoinColumn(name = "allocationProfessor_id", nullable = false)
-	private Allocation allocationProfessor;
-	
+	@JoinColumn(name = "allocation_Professor_id", nullable = false)
+	private Professor allocationProfessor;
+
 	@ManyToOne(optional = false)
 	@OnDelete(action = OnDeleteAction.CASCADE)
-	@JoinColumn(name = "allocationCourse_id", nullable = false)
-	private Allocation allocationCourse;
-	
-	
+	@JoinColumn(name = "allocation_Course_id", nullable = false)
+	private Course allocationCourse;
+
 	public Allocation() {
-		
+
 	}
-	
-	public Allocation(Long id, DayOfWeek dayOfWeek, Date start, Date end) {
+
+	public Allocation(Long id, DayOfWeek dayOfWeek, Date start, Date end, Professor allocationProfessor,
+			Course allocationCourse) {
 		super();
 		this.id = id;
 		this.dayOfWeek = dayOfWeek;
 		this.start = start;
 		this.end = end;
+		this.allocationProfessor = allocationProfessor;
+		this.allocationCourse = allocationCourse;
 	}
 
 	public Long getId() {
@@ -94,5 +98,20 @@ public class Allocation {
 		this.end = end;
 	}
 
+	public Professor getAllocationProfessor() {
+		return allocationProfessor;
+	}
+
+	public void setAllocationProfessor(Professor allocationProfessor) {
+		this.allocationProfessor = allocationProfessor;
+	}
+
+	public Course getAllocationCourse() {
+		return allocationCourse;
+	}
+
+	public void setAllocationCourse(Course allocationCourse) {
+		this.allocationCourse = allocationCourse;
+	}
 
 }

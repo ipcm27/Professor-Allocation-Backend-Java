@@ -8,40 +8,35 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
 @Entity
+@Table(name = "course")
 public class Course {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	long id;
-	
-	@Column (name = "name", nullable =false, unique = true)
+
+	@Column(name = "name", nullable = false, unique = true)
 	String name;
-	
-	
-	@OnDelete (action = OnDeleteAction.CASCADE)
-	@OneToMany(mappedBy= "allocationCourse")
+
+	@OnDelete(action = OnDeleteAction.CASCADE)
+	@OneToMany(mappedBy = "allocationCourse")
 	private List<Allocation> allocations;
-	
-	
-	
-	
-	
-	
-	
-	
+
 	public Course() {
 		super();
 	}
 
-	public Course(long id, String name) {
+	public Course(long id, String name, List<Allocation> allocations) {
 		super();
 		this.id = id;
 		this.name = name;
+		this.allocations = allocations;
 	}
 
 	public long getId() {
@@ -59,9 +54,14 @@ public class Course {
 	public void setName(String name) {
 		this.name = name;
 	}
-	
-	
-	
+
+	public List<Allocation> getAllocations() {
+		return allocations;
+	}
+
+	public void setAllocations(List<Allocation> allocations) {
+		this.allocations = allocations;
+	}
 	
 	
 
