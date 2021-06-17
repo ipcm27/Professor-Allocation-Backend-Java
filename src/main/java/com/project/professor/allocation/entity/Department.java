@@ -25,7 +25,7 @@ public class Department {
 	String name;
 
 	@OnDelete(action = OnDeleteAction.CASCADE)
-	@OneToMany(mappedBy = "departament")
+	@OneToMany(mappedBy = "department")
 	private List<Professor> professors;
 
 	public Department() {
@@ -62,6 +62,5 @@ public class Department {
 	public void setProfessors(List<Professor> professors) {
 		this.professors = professors;
 	}
-	
 
 }
