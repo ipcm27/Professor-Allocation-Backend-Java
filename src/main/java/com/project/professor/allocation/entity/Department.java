@@ -14,8 +14,8 @@ import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
 @Entity
-@Table(name = "departament")
-public class Departament {
+@Table(name = "department")
+public class Department {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -28,11 +28,11 @@ public class Departament {
 	@OneToMany(mappedBy = "departament")
 	private List<Professor> professors;
 
-	public Departament() {
+	public Department() {
 
 	}
 
-	public Departament(Long id, String name, List<Professor> professors) {
+	public Department(Long id, String name, List<Professor> professors) {
 		super();
 		this.id = id;
 		this.name = name;

@@ -31,8 +31,8 @@ public class Professor {
 
 	@ManyToOne(optional = false)
 	@OnDelete(action = OnDeleteAction.CASCADE)
-	@JoinColumn(name = "departament_id", nullable = false)
-	private Departament departament;
+	@JoinColumn(name = "department_id", nullable = false)
+	private Department department;
 
 	@OnDelete(action = OnDeleteAction.CASCADE)
 	@OneToMany(mappedBy = "allocationProfessor")
@@ -42,12 +42,12 @@ public class Professor {
 
 	}
 
-	public Professor(Long id, String name, String cpf, Departament departament, List<Allocation> allocations) {
+	public Professor(Long id, String name, String cpf, Department department, List<Allocation> allocations) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.cpf = cpf;
-		this.departament = departament;
+		this.department = department;
 		this.allocations = allocations;
 	}
 
@@ -75,12 +75,12 @@ public class Professor {
 		this.cpf = cpf;
 	}
 
-	public Departament getDepartament() {
-		return departament;
+	public Department getDepartment() {
+		return department;
 	}
 
-	public void setDepartament(Departament departament) {
-		this.departament = departament;
+	public void setDepartament(Department department) {
+		this.department = department;
 	}
 
 	public List<Allocation> getAllocations() {
