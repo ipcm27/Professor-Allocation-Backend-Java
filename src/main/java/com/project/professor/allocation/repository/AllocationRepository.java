@@ -13,8 +13,12 @@ import com.project.professor.allocation.entity.Professor;
 @Repository
 public interface AllocationRepository extends JpaRepository<Allocation, Long> {
 
-	// Select * from allocation where allocation_professor_id = X);
-	List<Allocation> findByAllocationProfessorLike(Professor id);
+	// Select * from allocation where professor_id = X);
+	List<Allocation> findByAllocationProfessorId(Long id);
+	
+	// Se eu só botar findByProfessorId ele nao vai buscar na classe professor;
+	// Logo eu tenho que por find by um atributo da classe alocaçao, que nesse caso é allocationProfessor
+	// Dúvida: é necessário o id em allocatinProfessor-Id-  já que o nome desse atributo é sem o id?
 
-	List<Allocation> findByAllocationCourseLike(Course id);
+	List<Allocation> findByAllocationCourseId(Long id);
 }

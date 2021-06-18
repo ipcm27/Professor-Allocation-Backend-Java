@@ -19,10 +19,10 @@ public class Course {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	long id;
+	private Long id;
 
 	@Column(name = "name", nullable = false, unique = true)
-	String name;
+	private String name;
 
 	@OnDelete(action = OnDeleteAction.CASCADE)
 	@OneToMany(mappedBy = "allocationCourse")

@@ -16,6 +16,6 @@ public interface ProfessorRepository extends JpaRepository<Professor, Long> {
 	List<Professor> findByNameContainingIgnoreCase(String Name);
 
 	// Select * from Professor where department_id = X;
-	List<Professor> findByDepartmentLike(Long department_id);
+	List<Professor> findByDepartmentId(Long id);
 
 }

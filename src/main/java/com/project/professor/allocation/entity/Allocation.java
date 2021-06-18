@@ -43,12 +43,12 @@ public class Allocation {
 
 	@ManyToOne(optional = false)
 	@OnDelete(action = OnDeleteAction.CASCADE)
-	@JoinColumn(name = "allocation_Professor_id", nullable = false)
+	@JoinColumn(name = "professor_id", nullable = false)
 	private Professor allocationProfessor;
 
 	@ManyToOne(optional = false)
 	@OnDelete(action = OnDeleteAction.CASCADE)
-	@JoinColumn(name = "allocation_Course_id", nullable = false)
+	@JoinColumn(name = "course_id", nullable = false)
 	private Course allocationCourse;
 
 	public Allocation() {
