@@ -79,7 +79,7 @@ public class Professor {
 		return department;
 	}
 
-	public void setDepartament(Department department) {
+	public void setDepartment(Department department) {
 		this.department = department;
 	}
 
