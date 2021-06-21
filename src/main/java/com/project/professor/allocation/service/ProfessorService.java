@@ -4,17 +4,21 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import com.project.professor.allocation.entity.Department;
 import com.project.professor.allocation.entity.Professor;
+import com.project.professor.allocation.repository.DepartmentRepository;
 import com.project.professor.allocation.repository.ProfessorRepository;
 
 @Service
 public class ProfessorService {
 
 	private final ProfessorRepository professorRepository;
+	private final DepartmentRepository departmentRepository;
 
-	public ProfessorService(ProfessorRepository professorRepository) {
+	public ProfessorService(ProfessorRepository professorRepository,DepartmentRepository departmentRepository ) {
 		super();
 		this.professorRepository = professorRepository;
+		this.departmentRepository = null;
 	}
 //READ
 
@@ -38,18 +42,47 @@ public class ProfessorService {
 
 //Save_Create
 
-	public Professor save(Professor professor) {
-		professor.setId(10L);
-		return saveInternal(professor);
+	public Professor create(Professor professor) {
+		professor.setId(null);
+		Professor newProfessor = professorRepository.save(professor);
+		
+		Long departmentId = newProfessor.getDepartment().getId();
+		Department newDepartment = departmentRepository.findById(departmentId).orElse(null);
+	    newProfessor.setDepartment(newDepartment);
+	    
+	    return newProfessor;
+	    
 	}
+	
+	 public Professor update(Professor professor) {
+	        Long id = professor.getId();
+	        if (id == null || !professorRepository.existsById(id)) {
+	           return null;
+	        }
 
-	public Professor Update(Professor professor) {
-		Long id = professor.getId();
-		if (id == null || !professorRepository.existsById(id)) {
-			return null;
-		}
-		return saveInternal(professor);
-	}
+	        return saveInternal(professor);
+	    }
+	 
+// Pelo que eu vi na aula e no Slide ambas aas formas de updtae sao corretas.
+// prefiro a 1 porque é mais curta e mais fácil de entender
+
+	//public Professor Update(Professor professor) {
+		
+		//boolean exists = professorRepository.existsById(professor.getId());
+		//if(exists) {
+			//Professor newProfessor = professorRepository.save(professor);
+		
+		//Long departmentId = newProfessor.getDepartment().getId();
+		//Department newDepartment = departmentRepository.findById(departmentId).orElse(null);
+	    //newProfessor.setDepartment(newDepartment);
+		
+			//return newProfessor;
+		
+		//} else {
+			
+			//return null;
+		//}
+	//}
 
 // DELETE
 	public void deleteById(Long id) {
@@ -62,6 +95,8 @@ public class ProfessorService {
 		professorRepository.deleteAllInBatch();
 	}
 
+	
+//AUX METHODS
 	private Professor saveInternal(Professor professor) {
 		return professorRepository.save(professor);
 	}
