@@ -74,14 +74,18 @@ class ProfessorRepositoryTest {
 
 	        Professor professor = new Professor();
 	        professor.setId(null);
-	        professor.setName("Professor 1");
-	        professor.setCpf("111.111.111-11");
+	        professor.setName("Professor 211");
+	        professor.setCpf("111.111.221-11");
 	        professor.setDepartment(department);
 
 	        // Act
-	        professor = professorRepository.save(professor);
+	        Professor newProfessor = professorRepository.save(professor);
+	        Long departmentId = newProfessor.getDepartment().getId();
+	        
+	        Department newDepartment = departmentRepository.findById(departmentId).orElse(null);
+	        newProfessor.setDepartment(newDepartment);
 
-	        // Print
+	        // Print 
 	        System.out.println(professor);
 	    }
 
@@ -109,7 +113,7 @@ class ProfessorRepositoryTest {
 	    @Test
 	    public void deleteById() {
 	        // Arrange
-	        Long id = 1L;
+	        Long id = 2L;
 
 	        // Act
 	        professorRepository.deleteById(id);
