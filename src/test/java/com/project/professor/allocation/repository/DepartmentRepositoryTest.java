@@ -20,7 +20,7 @@ public class DepartmentRepositoryTest {
 	@Autowired
 	private DepartmentRepository departmentRepository;
 
-	// READ
+//Read
 	@Test
 	public void findAll() {
 
@@ -44,8 +44,9 @@ public class DepartmentRepositoryTest {
 		System.out.println(department);
 
 	}
-
-	// create
+	
+//Create_Save
+	
 	@Test
 	public void save_create() {
 
@@ -78,7 +79,7 @@ public class DepartmentRepositoryTest {
 
 	}
 
-	// delete
+//Delete
 	@Test
 	public void deleteById() {
 		// Arrange

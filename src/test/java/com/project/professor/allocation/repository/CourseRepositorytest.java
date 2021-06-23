@@ -22,7 +22,7 @@ public class CourseRepositorytest {
 	@Autowired
 	private CourseRepository courseRepository;
 
-	// READ
+//Read
 
 	@Test
 	public void findAll() {
@@ -47,14 +47,14 @@ public class CourseRepositorytest {
 		System.out.println(course);
 	}
 
-	// SAVE & UPDATE
+//Save & Update
 
 	@Test
 	public void save_create() {
 		// Arrange
 		Course course = new Course();
-		course.setId(10L);
-		course.setName("Course Of potions");
+		course.setId(null);
+		course.setName("Course Of VolleyBall");
 
 		// Act
 		course = courseRepository.save(course);
@@ -69,7 +69,7 @@ public class CourseRepositorytest {
 		// Arrange
 		Course course = new Course();
 		course.setId(1L);
-		course.setName("Course 3" );
+		course.setName("Course of Soccer" );
 
 		// Act
 		course = courseRepository.save(course);

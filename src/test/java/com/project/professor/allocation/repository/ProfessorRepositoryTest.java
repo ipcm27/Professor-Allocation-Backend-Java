@@ -11,9 +11,6 @@ import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.TestPropertySource;
 
 import com.project.professor.allocation.entity.Department;
-//import com.project.professor.allocation.entity.Allocation;
-//import com.project.professor.allocation.entity.Course;
-import com.project.professor.allocation.entity.Department;
 import com.project.professor.allocation.entity.Professor;
 
 @DataJpaTest
@@ -26,7 +23,7 @@ class ProfessorRepositoryTest {
 	private ProfessorRepository professorRepository;
 	private DepartmentRepository departmentRepository;
 
-	//READ
+//Read
 	@Test
 	public void findAll() {
 		
@@ -54,7 +51,7 @@ class ProfessorRepositoryTest {
 	public void findByName() {
 		
 		//Arrange
-		String name = "professor";
+		String name = "pro";
 		
 		//Act
 		List<Professor> professors = professorRepository.findByNameContainingIgnoreCase(name);
@@ -64,18 +61,17 @@ class ProfessorRepositoryTest {
 		professors.forEach(System.out::println);
 	}
 		
-	//Save_Create	
+//Save_Create	
 	
 	  @Test
 	    public void save_create() {
 	        // Arrange
 	        Department department = new Department();
-	        department.setId(1L);
+	        department.setId(10L);
 
 	        Professor professor = new Professor();
-	        professor.setId(null);
-	        professor.setName("Professor 211");
-	        professor.setCpf("111.111.221-11");
+	        professor.setName("Professor 15");
+	        professor.setCpf("181.111.221-15");
 	        professor.setDepartment(department);
 
 	        // Act
@@ -86,7 +82,7 @@ class ProfessorRepositoryTest {
 	        newProfessor.setDepartment(newDepartment);
 
 	        // Print 
-	        System.out.println(professor);
+	        System.out.println(newProfessor);
 	    }
 
 	    @Test
@@ -97,8 +93,8 @@ class ProfessorRepositoryTest {
 
 	        Professor professor = new Professor();
 	        professor.setId(1L);
-	        professor.setName("Professor 2");
-	        professor.setCpf("222.222.222-22");
+	        professor.setName("Professor Modificado23");
+	        professor.setCpf("222.722.992-22");
 	        professor.setDepartment(department);
 
 	        // Act
@@ -108,12 +104,12 @@ class ProfessorRepositoryTest {
 	        System.out.println(professor);
 	    }
 		
-		
+//Delete
 
 	    @Test
 	    public void deleteById() {
 	        // Arrange
-	        Long id = 2L;
+	        Long id = 1L;
 
 	        // Act
 	        professorRepository.deleteById(id);
