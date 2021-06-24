@@ -44,14 +44,7 @@ public class ProfessorService {
 
 	public Professor create(Professor professor) {
 		professor.setId(null);
-		Professor newProfessor = professorRepository.save(professor);
-		
-		Long departmentId = newProfessor.getDepartment().getId();
-		Department newDepartment = departmentRepository.findById(departmentId).orElse(null);
-	    newProfessor.setDepartment(newDepartment);
-	    
-	    return newProfessor;
-	    
+		return saveInternal(professor);
 	}
 	
 	 public Professor update(Professor professor) {
@@ -98,7 +91,13 @@ public class ProfessorService {
 	
 //AUX METHODS
 	private Professor saveInternal(Professor professor) {
-		return professorRepository.save(professor);
+		Professor newProfessor = professorRepository.save(professor);
+		
+		Long departmentId = newProfessor.getDepartment().getId();
+		Department newDepartment = departmentRepository.findById(departmentId).orElse(null);
+	    newProfessor.setDepartment(newDepartment);
+	    
+	    return newProfessor;
 	}
 
 }
