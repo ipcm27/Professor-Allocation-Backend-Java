@@ -14,10 +14,11 @@ import com.project.professor.allocation.entity.Professor;
 @Repository
 public interface AllocationRepository extends JpaRepository<Allocation, Long> {
 	
+	// Não precisa, já existe na interface JpaRepository
+	//List<Allocation> findAll();
 	
-	List<Allocation> findAll();
-	
-	Optional<Allocation> findById(Long id);
+	//Não precisa, já existe na interface CrudRepository
+	//Optional<Allocation> findById(Long id);
 	
 	// Select * from allocation where professor_id = X);
 	List<Allocation> findByAllocationProfessorId(Long id);

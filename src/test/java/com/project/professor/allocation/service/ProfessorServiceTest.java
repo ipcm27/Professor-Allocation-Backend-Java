@@ -24,6 +24,8 @@ public class ProfessorServiceTest {
 	
 	@Autowired
 	private ProfessorRepository professorRepository;
+	
+	@Autowired // A anotação é para cada repositório. Se não colocar vai dar NPE
 	private DepartmentRepository departmentRepository;
 	
 	

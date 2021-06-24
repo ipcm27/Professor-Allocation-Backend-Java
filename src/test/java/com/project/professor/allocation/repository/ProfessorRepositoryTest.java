@@ -67,7 +67,7 @@ class ProfessorRepositoryTest {
 	    public void save_create() {
 	        // Arrange
 	        Department department = new Department();
-	        department.setId(10L);
+	        department.setId(null);
 
 	        Professor professor = new Professor();
 	        professor.setName("Professor 15");
