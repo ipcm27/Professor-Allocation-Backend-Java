@@ -1,11 +1,18 @@
 package com.project.professor.allocation.entity;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 @Entity
 public class Professor {
@@ -19,9 +26,14 @@ public class Professor {
 
 	@Column(nullable = false, unique = true)
 	private String cpf;
-	
-	@ManyToOne (optional = false)
+
+	@ManyToOne(optional = false)
+	@JoinColumn(name = "department_id", nullable = false)
 	private Department department;
+
+	@OnDelete(action = OnDeleteAction.CASCADE)
+	@OneToMany(mappedBy = "allocationProfessor")
+	private List<Allocation> allocations;
 
 	public Professor() {
 
@@ -67,4 +79,3 @@ public class Professor {
 		this.department = department;
 	}
 }
-

@@ -21,6 +21,7 @@ class ProfessorRepositoryTest {
 
 	@Autowired
 	private ProfessorRepository professorRepository;
+	@Autowired
 	private DepartmentRepository departmentRepository;
 
 //Read
@@ -67,11 +68,11 @@ class ProfessorRepositoryTest {
 	    public void save_create() {
 	        // Arrange
 	        Department department = new Department();
-	        department.setId(null);
+	        department.setId(7L);
 
 	        Professor professor = new Professor();
-	        professor.setName("Professor 15");
-	        professor.setCpf("181.111.221-15");
+	        professor.setName("Professor 18");
+	        professor.setCpf("181.111.221-18");
 	        professor.setDepartment(department);
 
 	        // Act
@@ -93,8 +94,8 @@ class ProfessorRepositoryTest {
 
 	        Professor professor = new Professor();
 	        professor.setId(1L);
-	        professor.setName("Professor Modificado23");
-	        professor.setCpf("222.722.992-22");
+	        professor.setName("Mario");
+	        professor.setCpf("992.722.992-99");
 	        professor.setDepartment(department);
 
 	        // Act
@@ -109,7 +110,7 @@ class ProfessorRepositoryTest {
 	    @Test
 	    public void deleteById() {
 	        // Arrange
-	        Long id = 1L;
+	        Long id = 12L;
 
 	        // Act
 	        professorRepository.deleteById(id);

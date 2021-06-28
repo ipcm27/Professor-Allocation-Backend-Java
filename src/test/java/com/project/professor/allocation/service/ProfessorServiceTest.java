@@ -82,8 +82,8 @@ public class ProfessorServiceTest {
 		
 		Professor professor = new Professor();
 		professor.setId(1L);
-		professor.setName("Harry Potter 12");
-		professor.setCpf("125.678.123-12");
+		professor.setName("Harry Potter 13");
+		professor.setCpf("125.678.123-13");
 		professor.setDepartment(department);
 		
 		//Act
