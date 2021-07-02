@@ -28,13 +28,13 @@ public class ProfessorService {
 	}
 
 	public List<Professor> findAll(String name) {
+		if(name == null) { 
 		return professorRepository.findAll();
 	}
-
-	public List<Professor> findByName(String name) {
-		return professorRepository.findByNameContainingIgnoreCase(name);
-
+		else{return professorRepository.findByNameContainingIgnoreCase(name);
+		}
 	}
+
 
 	public List<Professor> findByDepartment(Long departmentId) {
 		return professorRepository.findByDepartmentId(departmentId);
