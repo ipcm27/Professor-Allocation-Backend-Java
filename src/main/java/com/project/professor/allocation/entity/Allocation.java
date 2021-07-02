@@ -2,7 +2,7 @@ package com.project.professor.allocation.entity;
 
 import java.time.DayOfWeek;
 import java.util.Date;
-import java.util.List;
+
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -13,13 +13,14 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 @Entity
 @Table(name = "allocation")
@@ -33,10 +34,12 @@ public class Allocation {
 	@Column(name = "day", nullable = false, unique = false)
 	private DayOfWeek dayOfWeek;
 
+	@JsonFormat(pattern = "HH:mmZ")
 	@Temporal(value = TemporalType.TIME)
 	@Column(name = "start", nullable = false, unique = false)
 	private Date start;
-
+	
+	@JsonFormat(pattern = "HH:mmZ")
 	@Temporal(value = TemporalType.TIME)
 	@Column(name = "end", nullable = false, unique = false)
 	private Date end;
