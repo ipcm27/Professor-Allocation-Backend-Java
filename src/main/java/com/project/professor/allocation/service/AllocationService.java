@@ -47,7 +47,7 @@ public class AllocationService {
 
 //CREATE_SAVE
 
-	public Allocation save(Allocation allocation) {
+	public Allocation create(Allocation allocation) {
 		allocation.setId(null);
 		return saveInternal(allocation);
 	}

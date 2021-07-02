@@ -21,6 +21,7 @@ import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @Table(name = "allocation")
@@ -44,11 +45,13 @@ public class Allocation {
 	@Column(name = "end", nullable = false, unique = false)
 	private Date end;
 
+	@JsonIgnoreProperties({"allocations"})
 	@ManyToOne(optional = false)
 	@OnDelete(action = OnDeleteAction.CASCADE)
 	@JoinColumn(name = "professor_id", nullable = false)
 	private Professor allocationProfessor;
 
+	@JsonIgnoreProperties({"allocations"})
 	@ManyToOne(optional = false)
 	@OnDelete(action = OnDeleteAction.CASCADE)
 	@JoinColumn(name = "course_id", nullable = false)
