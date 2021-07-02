@@ -33,12 +33,12 @@ public class CourseService {
 
 //Create_Update
 
-	public Course save(Course course) {
-		course.setId(10L);
+	public Course create(Course course) {
+		course.setId(null);
 		return saveInternal(course);
 	}
 
-	public Course Update(Course course) {
+	public Course update(Course course) {
 		Long id = course.getId();
 		if (id == null || !courseRepository.existsById(id)) {
 			return null;
