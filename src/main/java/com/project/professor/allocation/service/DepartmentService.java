@@ -38,7 +38,7 @@ public class DepartmentService {
 
 	// CREATE_UPDATE
 
-	public Department save(Department department) {
+	public Department create(Department department) {
 		department.setId(null);
 		return saveInternal(department);
 	}
@@ -68,4 +68,6 @@ public class DepartmentService {
 	private Department saveInternal(Department department) {
 		return departmentRepository.save(department);
 	}
+
+	
 }
