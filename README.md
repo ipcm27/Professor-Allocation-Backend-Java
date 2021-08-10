@@ -1,5 +1,3 @@
-Coding is Awesome!
-
 General Info
 
 This project was built in jun 2021 during [RE]code 5 course.
