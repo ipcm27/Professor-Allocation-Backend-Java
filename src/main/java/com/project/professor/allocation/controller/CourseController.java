@@ -18,7 +18,9 @@ import org.springframework.web.bind.annotation.RestController;
 import com.project.professor.allocation.entity.Course;
 import com.project.professor.allocation.service.CourseService;
 
+import io.swagger.annotations.Api;
 
+@Api(tags= {"Course"})
 @RestController
 @RequestMapping(path = "/courses", produces = MediaType.APPLICATION_JSON_VALUE)
 public class CourseController{

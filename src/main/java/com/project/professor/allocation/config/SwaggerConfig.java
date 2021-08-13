@@ -1,4 +1,4 @@
-package com.project.professor.allocation.config;
+ package com.project.professor.allocation.config;
 
 import java.util.Collections;
 

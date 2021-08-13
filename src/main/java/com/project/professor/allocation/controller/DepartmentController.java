@@ -18,6 +18,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.project.professor.allocation.entity.Department;
 import com.project.professor.allocation.service.DepartmentService;
 
+import io.swagger.annotations.Api;
+@Api(tags= {"Departments"})
 @RestController
 @RequestMapping(path = "/departments", produces = MediaType.APPLICATION_JSON_VALUE)
 public class DepartmentController {

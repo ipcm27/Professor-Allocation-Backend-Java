@@ -15,8 +15,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.project.professor.allocation.service.AllocationService;
+
+import io.swagger.annotations.Api;
+
 import com.project.professor.allocation.entity.Allocation;
 
+@Api(tags= {"Allocation"})
 @RestController
 @RequestMapping(path = "/allocations", produces = MediaType.APPLICATION_JSON_VALUE)
 public class AllocationController {

@@ -18,6 +18,9 @@ import org.springframework.web.bind.annotation.RestController;
 import com.project.professor.allocation.entity.Professor;
 import com.project.professor.allocation.service.ProfessorService;
 
+import io.swagger.annotations.Api;
+
+@Api(tags = { "Professor" })
 @RestController
 @RequestMapping(path = "/professors", produces = MediaType.APPLICATION_JSON_VALUE)
 public class ProfessorController {
@@ -49,7 +52,8 @@ public class ProfessorController {
 	public ResponseEntity<Professor> create(@RequestBody Professor professor) {
 		try {
 			Professor newProfessor = professorService.create(professor);
-			return new ResponseEntity<Professor>(newProfessor, HttpStatus.CREATED);
+			return new ResponseEntity<>(newProfessor, HttpStatus.CREATED);
+			
 		} catch (Exception e) {
 			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 		}
@@ -79,10 +83,10 @@ public class ProfessorController {
 	}
 
 	@DeleteMapping
-	public ResponseEntity<Void>deleteAll(){
-	professorService.deleteAll();
-	return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-	
+	public ResponseEntity<Void> deleteAll() {
+		professorService.deleteAll();
+		return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+
 	}
-	
+
 }
