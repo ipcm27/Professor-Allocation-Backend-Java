@@ -39,8 +39,13 @@ public class Course {
 		this.allocations = allocations;
 	}
 	
-
-
+	public Course(Long id, String name) {
+		super();
+		this.id = id;
+		this.name = name;
+		
+	}
+	
 	
 
 	public Long getId() {
