@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/tela">
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="RECoDev 5"
+        android:textSize="40dp"
+        android:textColor="#FF9800"
+        android:textStyle="bold"
+        android:textAlignment="center"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/imDepartment"
+        />
+
+    <ImageButton
+        android:id="@+id/imDepartment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvTitle"
+        app:layout_constraintBottom_toTopOf="@id/imCourse"
+        app:layout_constraintEnd_toStartOf="@id/imProfessor"
+        android:background="@drawable/round_layout_bg"
+        android:src="@drawable/departamento"
+        android:onClick="openDepartment"
+        />
+
+    <ImageButton
+        android:id="@+id/imProfessor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@id/imDepartment"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvTitle"
+        app:layout_constraintBottom_toTopOf="@id/imAloc"
+        android:background="@drawable/round_layout_bg"
+        android:src="@drawable/professor"
+        android:onClick="openProfessor"
+        />
+
+    <ImageButton
+        android:id="@+id/imCourse"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/imDepartment"
+        app:layout_constraintBottom_toTopOf="@id/tvMain"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/imAloc"
+        android:background="@drawable/round_layout_bg"
+        android:src="@drawable/curso"
+        android:onClick="openCourse"
+        />
+
+    <ImageButton
+        android:id="@+id/imAloc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        app:layout_constraintTop_toBottomOf="@id/imProfessor"
+        app:layout_constraintStart_toEndOf="@id/imCourse"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/tvMain"
+        android:background="@drawable/round_layout_bg"
+        android:src="@drawable/alocacao"
+        android:onClick="openAllocation"
+        />
+
+
+
+    <TextView
+        android:id="@+id/tvMain"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/textMain"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@id/tvRights"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+
+        />
+
+    <TextView
+        android:id="@+id/tvRights"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/direitos"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="30dp"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+
+        />
+</androidx.constraintlayout.widget.ConstraintLayout>

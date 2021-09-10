@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".views.allocation.AllocationCreateActivity"
+    android:background="@drawable/tela">
+
+
+    <TextView
+        android:id="@+id/tvAllocCreate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="ALOCAÇÃO"
+        android:textSize="30dp"
+        android:textColor="#FF9800"
+        android:textStyle="bold"
+        android:textAlignment="center"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/tvCreate"
+        app:layout_constraintVertical_chainStyle="packed"
+        />
+
+    <TextView
+        android:id="@+id/tvCreate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="ADICIONAR"
+        android:textSize="15dp"
+        android:textColor="#FF9800"
+        android:textStyle="bold"
+        android:textAlignment="center"
+        app:layout_constraintTop_toBottomOf="@id/tvAllocCreate"
+        app:layout_constraintBottom_toTopOf="@id/spProfessor"
+        />
+
+    <Spinner
+        android:id="@+id/spProfessor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Nome"
+        android:layout_marginBottom="5dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/spCourse"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintVertical_chainStyle="packed"
+        android:background="@drawable/round_layout_bg"
+        />
+
+    <Spinner
+        android:id="@+id/spCourse"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="CPF"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="5dp"
+        app:layout_constraintTop_toBottomOf="@id/spProfessor"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/spDayOfWeek"
+        android:background="@drawable/round_layout_bg"
+        />
+
+    <Spinner
+        android:id="@+id/spDayOfWeek"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="5dp"
+        android:background="@drawable/round_layout_bg"
+        app:layout_constraintTop_toBottomOf="@id/spCourse"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/spStartHour"
+        />
+
+    <Spinner
+        android:id="@+id/spStartHour"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/round_layout_bg"
+        app:layout_constraintTop_toBottomOf="@id/spDayOfWeek"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/spEndHour"
+        app:layout_constraintBottom_toTopOf="@id/btSave"
+        />
+
+    <Spinner
+        android:id="@+id/spEndHour"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/round_layout_bg"
+        app:layout_constraintTop_toTopOf="@id/spStartHour"
+        app:layout_constraintStart_toEndOf="@id/spStartHour"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/spStartHour"
+        />
+
+
+
+
+
+    <Button
+        android:id="@+id/btSave"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ADICIONAR"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="50dp"
+        android:backgroundTint="#008037"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:onClick="createAllocation"
+        />
+</androidx.constraintlayout.widget.ConstraintLayout>

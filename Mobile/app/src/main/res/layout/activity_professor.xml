@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".views.professor.ProfessorActivity"
+    android:background="@drawable/tela">
+
+
+    <EditText
+        android:id="@+id/edProfessor"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Pesquisar por ID"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/imFindProfessor"
+        app:layout_constraintBottom_toBottomOf="@id/imFindProfessor"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:textSize="23dp"
+        android:background="@drawable/round_layout_bg"
+        />
+
+    <ImageButton
+        android:id="@+id/imFindProfessor"
+        android:layout_width="48dp"
+        android:layout_height="45dp"
+        android:contentDescription="Buscar por id"
+        android:src="@drawable/bt_search"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        app:layout_constraintEnd_toStartOf="@id/imAddProfessor"
+        app:layout_constraintStart_toEndOf="@id/edProfessor"
+        app:layout_constraintTop_toTopOf="parent"
+        android:onClick="getProfessorById"
+        android:background="@drawable/round_layout_bg"
+        />
+
+    <ImageButton
+        android:id="@+id/imAddProfessor"
+        android:layout_width="48dp"
+        android:layout_height="45dp"
+        android:contentDescription="Adicionar departamento"
+        android:src="@drawable/bt_add"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/imFindProfessor"
+        app:layout_constraintTop_toTopOf="parent"
+        android:onClick="switchToCreateProfessor"
+        android:background="@drawable/round_layout_bg"
+        />
+
+    <TextView
+        android:id="@+id/tvIdProfessor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginLeft="12dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/edProfessor"
+        app:layout_constraintEnd_toStartOf="@id/tvProf"
+        app:layout_constraintBottom_toTopOf="@id/lvProfessor"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:text="ID"
+        android:textSize="21dp"
+        android:padding="8dp"/>
+
+    <TextView
+        android:id="@+id/tvProf"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        app:layout_constraintTop_toBottomOf="@id/edProfessor"
+        app:layout_constraintStart_toEndOf="@id/tvIdProfessor"
+        app:layout_constraintBottom_toTopOf="@id/lvProfessor"
+        android:text="PROFESSOR"
+        android:textSize="21dp"
+        android:padding="8dp"/>
+
+    <TextView
+        android:id="@+id/tvCpfProfessor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="CPF"
+        app:layout_constraintTop_toBottomOf="@id/edProfessor"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:textSize="21dp"
+        android:padding="8dp"
+        />
+
+    <ListView
+        android:id="@+id/lvProfessor"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        app:layout_constraintTop_toBottomOf="@id/tvIdProfessor"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:dividerHeight="5dp"
+        tools:listitem="@layout/activity_professor_item_list"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
