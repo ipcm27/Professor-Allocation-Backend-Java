@@ -21,7 +21,7 @@ public class corsConfig {
                         .allowedHeaders("Content-Type", "X-Requested-With", "accept", "Origin", "Access-Control-Request-Method",
                                 "Access-Control-Request-Headers")
                         .exposedHeaders("Access-Control-Allow-Origin", "Access-Control-Allow-Credentials")
-                        .allowCredentials(true).maxAge(3600);
+                        ;
             }
         };
     }
